@@ -3,16 +3,17 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 
-import AdminDashboard from "./pages/dashboard/AdminDashboard";
-import UserDashboard from "./pages/dashboard/UserDashboard";
+import AdminDashboard from "./pages/dashboard/AdminDashboard.jsx";
+import UserDashboard from "./pages/dashboard/UserDashboard.jsx";
 
-import AddMembership from "./pages/membership/AddMembership";
-import UpdateMembership from "./pages/membership/UpdateMembership";
+import AddMembership from "./pages/membership/AddMembership.jsx";
+import UpdateMembership from "./pages/membership/UpdateMembership.jsx";
 
-import Reports from "./pages/reports/Reports";
-import Transactions from "./pages/transactions/Transactions";
+import Reports from "./pages/reports/Reports.jsx";
+// import Transactions from "./pages/transactions/Transactions.jsx";
 
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
+import Transactions from "./pages/transaction/Transactions.jsx";
 
 function App() {
   return (
@@ -47,7 +48,7 @@ function App() {
 
         {/* Reports + Transactions */}
         <Route path="/reports" element={<Reports />} />
-        <Route path="/transactions" element={<Transactions />} />
+        <Route path="/transactions" element={<Transactions/>} />
       </Routes>
     </BrowserRouter>
   );
