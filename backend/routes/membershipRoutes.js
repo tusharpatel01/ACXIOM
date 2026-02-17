@@ -4,7 +4,7 @@ import { isAuthenticated } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-/* ADD MEMBERSHIP */
+//this is the add membership logic, we will use this to create new memberships
 router.post("/add", isAuthenticated, async (req, res) => {
   const membership = await Membership.create(req.body);
 
@@ -14,7 +14,7 @@ router.post("/add", isAuthenticated, async (req, res) => {
   });
 });
 
-/* GET MEMBERSHIP */
+//this is the get membership logic, we will use this to get a membership by its membership number
 router.get("/:membershipNo", isAuthenticated, async (req, res) => {
   const membership = await Membership.findOne({
     membershipNo: req.params.membershipNo
@@ -26,7 +26,7 @@ router.get("/:membershipNo", isAuthenticated, async (req, res) => {
   res.json(membership);
 });
 
-/* EXTEND MEMBERSHIP */
+//this is the extend membership logic, we will use this to extend a membership by updating its duration
 router.put("/extend/:membershipNo", isAuthenticated, async (req, res) => {
   const membership = await Membership.findOneAndUpdate(
     { membershipNo: req.params.membershipNo },
@@ -40,7 +40,7 @@ router.put("/extend/:membershipNo", isAuthenticated, async (req, res) => {
   });
 });
 
-/* CANCEL MEMBERSHIP */
+//this is the cancel membership logic, we will use this to cancel a membership by updating its status to cancelled
 router.put("/cancel/:membershipNo", isAuthenticated, async (req, res) => {
   const membership = await Membership.findOneAndUpdate(
     { membershipNo: req.params.membershipNo },

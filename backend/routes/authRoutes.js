@@ -5,7 +5,7 @@ import User from "../models/User.js";
 
 const router = express.Router();
 
-/* REGISTER */
+// this is the register logic, we will use this to create users with different roles (admin/user)
 router.post("/register", async (req, res) => {
   const { name, email, password, role } = req.body;
 
@@ -24,7 +24,7 @@ router.post("/register", async (req, res) => {
   });
 });
 
-/* LOGIN */
+// this is the login logic, we will use this to authenticate users and generate JWT tokens
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
@@ -55,8 +55,7 @@ router.post("/login", async (req, res) => {
     }
   });
 });
-
-/* LOGOUT */
+// this is the logout logic, we will use this to clear the JWT token from cookies
 router.post("/logout", (req, res) => {
   res.clearCookie("token");
   res.json({ message: "Logout Successful" });
